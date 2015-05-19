@@ -1,0 +1,93 @@
+snippet web-app
+	<?xml version="1.0" encoding="UTF-8"?>
+	<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xmlns="http://java.sun.com/xml/ns/javaee"
+		 xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+		 id="WebApp_ID" version="3.0">
+		<display-name>${1}</display-name>
+		<servlet>
+			<servlet-name>PrimeiroServlet</servlet-name>
+			<servlet-class>controllers.PrimeiroServlet</servlet-class>
+		</servlet>
+		<servlet-mapping>
+			<servlet-name>PrimeiroServlet</servlet-name>
+			<url-pattern>/*</url-pattern>
+		</servlet-mapping>
+	</web-app>
+snippet persistence
+	<?xml version="1.0" encoding="UTF-8"?>
+	<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+		  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		  xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+			 http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+		  version="2.0">
+		<persistence-unit name="${1}">
+			<class>${2}</class>
+			<properties>
+				<property name="javax.persistence.jdbc.driver"
+						  value="com.mysql.jdbc.Driver" />
+				<property name="javax.persistence.jdbc.url"
+						  value="jdbc:mysql://abobrinha.com/jpa01" />
+				<property name="javax.persistence.jdbc.user"
+						  value="root" />
+				<property name="javax.persistence.jdbc.password"
+						  value="" />
+				<property name="openjpa.jdbc.SynchronizeMappings"
+						  value="buildSchema(ForeignKeys=true)"/>
+			</properties>
+		</persistence-unit>
+	</persistence>
+snippet faces
+	<?xml version="1.0" encoding="UTF-8"?>
+	<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xmlns="http://java.sun.com/xml/ns/javaee"
+		 xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+		 id="WebApp_ID" version="3.0">
+		<display-name>${1}</display-name>
+		<servlet>
+			<servlet-name>Faces Servlet</servlet-name>
+			<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		</servlet>
+		<servlet-mapping>
+			<servlet-name>Faces Servlet</servlet-name>
+			<url-pattern>/faces/*</url-pattern>
+		</servlet-mapping>
+		<welcome-file-list>
+			<welcome-file>faces/index.xhtml</welcome-file>
+		</welcome-file-list>
+		<context-param>
+			<param-name>javax.faces.PROJECT_STAGE</param-name>
+			<param-value>Development</param-value>
+		</context-param>
+		<listener>
+			<listener-class>com.sun.faces.config.ConfigureListener</listener-class>
+		</listener>
+	</web-app>
+snippet faces-config
+	<?xml version="1.0" encoding="UTF-8"?>
+	<faces-config
+		xmlns="http://java.sun.com/xml/ns/javaee"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+		version="2.0">
+		<application>
+		   <locale-config>
+			  <default-locale>en</default-locale>
+			  <supported-locale>pt</supported-locale>
+		   </locale-config>
+		   <resource-bundle>
+			  <base-name>${1}</base-name>
+			  <var>${2}</var>
+		   </resource-bundle>
+		</application>
+	</faces-config>
+snippet cdi-jetty-env
+	<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
+	<Configure class="org.eclipse.jetty.webapp.WebAppContext">
+		<Set name="serverClasses">
+			<Array type="java.lang.String">
+				<Item>-org.eclipse.jetty.servlet.ServletContextHandler.Decorator</Item>
+			</Array>
+		</Set>
+	</Configure>
