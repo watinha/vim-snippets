@@ -5,14 +5,6 @@ snippet web-app
 		 xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 		 id="WebApp_ID" version="3.0">
 		<display-name>${1}</display-name>
-		<servlet>
-			<servlet-name>PrimeiroServlet</servlet-name>
-			<servlet-class>controllers.PrimeiroServlet</servlet-class>
-		</servlet>
-		<servlet-mapping>
-			<servlet-name>PrimeiroServlet</servlet-name>
-			<url-pattern>/*</url-pattern>
-		</servlet-mapping>
 	</web-app>
 snippet persistence
 	<?xml version="1.0" encoding="UTF-8"?>
@@ -188,3 +180,12 @@ snippet appengine-web
 		<threadsafe>true</threadsafe>
 		<sessions-enabled>true</sessions-enabled>
 	</appengine-web-app>
+snippet servlet-mapping
+		<servlet>
+			<servlet-name>${1}</servlet-name>
+			<servlet-class>${2}</servlet-class>
+		</servlet>
+		<servlet-mapping>
+			<servlet-name>${1}</servlet-name>
+			<url-pattern>${3}</url-pattern>
+		</servlet-mapping>
