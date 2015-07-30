@@ -1,0 +1,10 @@
+snippet appengine
+	application: ${1}
+	version: 0.1
+	runtime: java
+	threadsafe: true
+	sessions_enabled: true
+
+	handlers:
+	- url: /admin/*
+	  login: admin
