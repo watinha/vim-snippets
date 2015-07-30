@@ -26,6 +26,12 @@ snippet persistence
 						  value="" />
 				<property name="openjpa.jdbc.SynchronizeMappings"
 						  value="buildSchema(ForeignKeys=true)"/>
+				<!--  propriedades do hibernate -->
+				<property name="hibernate.dialect"
+					value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+				<property name="hibernate.show_sql" value="true" />
+				<property name="hibernate.format_sql" value="true" />
+				<property name="hibernate.hbm2ddl.auto" value="update" />
 			</properties>
 		</persistence-unit>
 	</persistence>
@@ -181,11 +187,72 @@ snippet appengine-web
 		<sessions-enabled>true</sessions-enabled>
 	</appengine-web-app>
 snippet servlet-mapping
-		<servlet>
-			<servlet-name>${1}</servlet-name>
-			<servlet-class>${2}</servlet-class>
-		</servlet>
-		<servlet-mapping>
-			<servlet-name>${1}</servlet-name>
-			<url-pattern>${3}</url-pattern>
-		</servlet-mapping>
+	<servlet>
+		<servlet-name>${1:ServletName}</servlet-name>
+		<servlet-class>${2}</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>${3:$1}</servlet-name>
+		<url-pattern>${4}</url-pattern>
+	</servlet-mapping>
+snippet filter-mapping
+	<filter>
+		<filter-name>${1:filter}</filter-name>
+		<filter-class>${2}</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>${3:$1}</filter-name>
+		<url-pattern>${4}</url-pattern>
+	</filter-mapping>
+snippet error
+	<error-page>
+		<error-code>404</error-code>
+		<location>/404.html</location>
+	</error-page>
+	<error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>/erro.html</location>
+	</error-page>
+snippet hibernate
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-core</artifactId>
+		<version>5.0.0.CR2</version>
+	</dependency>
+	<!-- for JPA, use hibernate-entitymanager instead of hibernate-core -->
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-entitymanager</artifactId>
+		<version>5.0.0.CR2</version>
+	</dependency>
+	<!-- optional -->
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-osgi</artifactId>
+		<version>5.0.0.CR2</version>
+	</dependency>
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-envers</artifactId>
+		<version>5.0.0.CR2</version>
+	</dependency>
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-c3p0</artifactId>
+		<version>5.0.0.CR2</version>
+	</dependency>
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-proxool</artifactId>
+		<version>5.0.0.CR2</version>
+	</dependency>
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-infinispan</artifactId>
+		<version>5.0.0.CR2</version>
+	</dependency>
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-ehcache</artifactId>
+		<version>5.0.0.CR2</version>
+	</dependency>
