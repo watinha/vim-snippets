@@ -180,4 +180,11 @@ snippet appengine-build
 			</plugin>
 		</plugins>
 	</build>
-
+snippet appengine-web
+	<?xml version="1.0" encoding="utf-8"?>
+	<appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
+		<application>${1}</application>
+		<version>${2}</version>
+		<threadsafe>true</threadsafe>
+		<sessions-enabled>true</sessions-enabled>
+	</appengine-web-app>
