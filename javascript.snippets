@@ -72,3 +72,11 @@ snippet get
 # Get Element
 snippet gett
 	getElementBy${1:Id}('${2}')${3}
+
+snippet angular.module
+	angular.module("${1}", ["${2}"])
+
+snippet angular.controller
+	.controller("${1}", function (${2}) {
+		${3}
+	});
