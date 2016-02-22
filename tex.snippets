@@ -113,3 +113,24 @@ snippet section
 	${1:Section}~\ref{${2:sec:}}${3}
 snippet page
 	${1:page}~\pageref{${2}}${3}
+
+snippet beamer
+	\documentclass[aspectratio=169]{beamer}
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+	\usepackage[brazil]{babel}
+	\usetheme{AnnArbor}
+	\usecolortheme{orchid}
+	\usefonttheme[onlymath]{serif}
+	\title[\sc{Texto no rodap\'e}]{Modelo do Beamer - Digite o titulo}
+	\author[digite seu Nome]{digite seu Nome}
+	\institute{nome do instituto}
+	\date{\today}
+	\begin{document}
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	\begin{frame}
+		Segundo frame
+	\end{frame}
+	\end{document}
