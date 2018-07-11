@@ -94,3 +94,26 @@ snippet ng2-component-root
 		${3}
 	])
 	export class AppComponent {}
+
+# Angular Routes
+snippet ng-routes
+	import { RouterModule, Routes} from '@angular/router';
+	@Routes([
+		{ path: '/${1:path}', component: ${2:Component} }${3}
+	])
+	@NgModule({
+	  imports: [
+		RouterModule.forRoot(routes)
+	  ],
+	  exports: [
+		RouterModule
+	  ]
+	})
+
+# Angular RouteDefinition
+
+# Angular HttpClient
+snippet ng-http-client
+	import { HttpClient } from '@angular/common/http';
+
+#Angular
