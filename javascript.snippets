@@ -81,6 +81,7 @@ snippet angular.controller
 		${3}
 	});
 
+
 snippet express
 	let http = require('http'),
 		path = require('path'),
@@ -93,3 +94,52 @@ snippet express
 	app.use(express.urlencoded({extended: false}));
 
 	app.listen(3000);
+
+
+snippet createSlice
+	import { createSlice } from '@reduxjs/toolkit';
+
+	export const ${1} = createSlice({
+		name: '${2}',
+		initialState: {},
+		reducers: {},
+	});
+
+snippet react-test
+	import React from 'react';
+	import { render } from 'react-dom';
+	import { act, Simulate } from 'react-dom/test-utils';
+	import { Provider } from 'react-redux';
+
+	import store from '../../app/store';
+
+	let container;
+	beforeEach(() => {
+		container = document.createElement('div');
+	});
+
+	it('first test', async () => {
+	});
+
+snippet webpack
+	const path = require('path');
+
+	module.exports = {
+		entry: './src/js/index.js',
+		output: {
+			filename: 'main.js',
+			path: path.resolve(__dirname, 'dist'),
+		},
+		module: {
+			rules: [
+				{
+					test: /\.css$/i,
+					use: ['style-loader', 'css-loader'],
+				},
+			 {
+				 test: /\.(png|svg|jpg|jpeg|gif)$/i,
+				 type: 'asset/resource',
+			 },
+			],
+		},
+	};
